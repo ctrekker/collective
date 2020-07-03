@@ -32,6 +32,7 @@ function handleClient(sock)
     command = split(lowercase(readline(sock)), " ")
     pCommand = command[1]
     body = readArray(sock)
+    println(body)
 
     if pCommand == "set_buf"
         buffId = parse(Int, command[2])

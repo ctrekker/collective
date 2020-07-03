@@ -6,13 +6,13 @@ io:
 =#
 
 function readArray(stream)
-    dimensions = read(stream, Int16)
+    dimensions = read(stream, UInt16)
     if dimensions === 0
         return []
     end
     sizes = []
     for i ∈ 1:dimensions
-        push!(sizes, read(stream, Int64))
+        push!(sizes, read(stream, UInt64))
     end
 
     buff = zeros(Float64, sizes...)
@@ -25,10 +25,10 @@ function readArray(stream)
 end
 function readArraySize(stream)
     seekstart(stream)
-    dimensions = read(stream, Int16)
+    dimensions = read(stream, UInt16)
     sizes = []
     for i ∈ 1:dimensions
-        push!(sizes, read(stream, Int64))
+        push!(sizes, read(stream, UInt64))
     end
 
     return sizes
@@ -48,9 +48,9 @@ function concatArray(stream, array)
     end
 end
 function writeArray(stream, array)
-    write(stream, Int16(length(size(array))))
+    write(stream, UInt16(length(size(array))))
     for size ∈ size(array)
-        write(stream, Int64(size))
+        write(stream, UInt64(size))
     end
 
     for e ∈ array
