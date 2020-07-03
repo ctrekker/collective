@@ -76,7 +76,7 @@ function handleClient(sock)
         writeSuccess(sock)
         close(sock)
     else
-
+        writeResponse(sock, "false")
     end
 end
 

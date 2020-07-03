@@ -69,9 +69,8 @@ class CollectiveClient:
     def load(self, name, buf_id):
         return self.execute_command('load %s %d' % (name, buf_id))[0]
 
-    def del(self, name):
+    def delete(self, name):
         return self.execute_command('del %s' % name)[0]
 
     def cat(self, buf_id, name):
         return self.execute_command('cat %d %s' % (buf_id, name))[0]
-        
