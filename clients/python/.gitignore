@@ -1,2 +1,3 @@
 build
 collective_client.egg-info
+collective_client/__pycache__
